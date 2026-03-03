@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ECCF / ECCD: Emergency Call Codecfake Detection (Interspeech 2026)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ECCF dataset: real vs codec-resynthesized emergency-call speech samples for codecfake detection." />
+
+  <style>
+    :root{
+      --bg:#ffffff; --text:#111827; --muted:#4b5563;
+      --link:#2563eb; --border:#e5e7eb; --panel:#f9fafb;
+    }
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans";}
+    .wrap{max-width:980px; margin:0 auto; padding:28px 18px 56px;}
+    h1{font-size:28px; line-height:1.2; margin:0 0 10px; text-align:center;}
+    .conf{ text-align:center; font-style:italic; color:var(--muted); margin:4px 0 14px; }
+    .tldr{ margin:0 0 18px; }
+
+    .links{ text-align:center; margin:4px 0 10px; }
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .soon{
+      position:relative; display:inline-block; color:var(--link);
+      cursor:help; padding:0 2px; user-select:none;
+    }
+    .soon:hover{ text-decoration:underline; }
+    .soon::after{
+      content:"Will be coming soon";
+      position:absolute; left:50%; transform:translateX(-50%);
+      bottom:130%; background:#111827; color:#fff; font-size:12px;
+      padding:6px 8px; border-radius:8px; white-space:nowrap;
+      opacity:0; pointer-events:none; transition:opacity .12s ease;
+      box-shadow:0 8px 20px rgba(0,0,0,.15);
+    }
+    .soon::before{
+      content:""; position:absolute; left:50%; transform:translateX(-50%);
+      bottom:118%; border:6px solid transparent; border-top-color:#111827;
+      opacity:0; transition:opacity .12s ease; pointer-events:none;
+    }
+    .soon:hover::after,.soon:hover::before{ opacity:1; }
+
+    h2{ font-size:20px; margin:24px 0 10px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+    p{ margin:10px 0; }
+    .note{ color:var(--muted); }
+
+    .tablewrap{ overflow:auto; border:1px solid var(--border); border-radius:12px; background:#fff; }
+    table{ border-collapse:collapse; width:100%; min-width:900px; }
+    th, td{ border-bottom:1px solid var(--border); padding:10px; text-align:left; vertical-align:middle; white-space:nowrap; }
+    th{ background:var(--panel); font-weight:600; }
+    audio{ width:240px; max-width:100%; }
+    .audio-pill{ display:inline-flex; align-items:center; padding:8px 10px; border-radius:999px; background:#f3f4f6; border:1px solid #e5e7eb; }
+    .audio-pill audio{ width:230px; }
+    .small{ font-size:13px; color:var(--muted); }
+    code{ background:#f3f4f6; padding:2px 6px; border-radius:6px; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Do Emergency Calls Break Codecfake Detection?</h1>
+
+    <div class="links">
+      <!-- Replace these spans with real <a href="..."> links when ready -->
+      <span class="soon" tabindex="0" title="Will be coming soon">Paper</span>,
+      <span class="soon" tabindex="0" title="Will be coming soon">Dataset</span>,
+      <span class="soon" tabindex="0" title="Will be coming soon">Code</span>
+    </div>
+
+    <div class="conf">Anonymous submission to Interspeech 2026</div>
+
+    <p class="tldr">
+      <b>TL;DR:</b> We introduce the <b>Emergency Call Codecfake (ECCF)</b> dataset and benchmark
+      <b>Emergency Call Codecfake Detection (ECCD)</b>, and propose <b>TAPESTRY</b>.
+    </p>
+
+    <h2>Dataset Download</h2>
+    <p class="note">
+      ECCF will be released after the double-blind review process.
+      (Replace this line with your real link once ready.)
+    </p>
+
+    <h2>Real vs Codec-Synthesized Samples</h2>
+    <p class="note">
+      The table below shows paired bona fide (real) and codec-resynthesized (fake) emergency-call speech samples.
+    </p>
+
+    <div class="tablewrap">
+      <table aria-label="ECCF samples">
+        <thead>
+          <tr>
+            <th>Dataset</th>
+            <th>Codec</th>
+            <th>GT File ID</th>
+            <th>Real (GT)</th>
+            <th>Fake (Codec)</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td colspan="5" class="small">Loading samples…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Acknowledgement</h2>
+    <p class="note">
+      Please add your data source acknowledgements here (e.g., emergency-call sources used to curate ECCF).
+    </p>
+
+    <p class="small">© Your lab / authors</p>
+  </div>
+
+  <script>
+    // ✅ Replace these examples with your real sample rows
+    // Required fields: dataset, gt_id, codec, gt_url, gen_url
+    window.MANIFEST_RAW = [
+  // -------------------------
+  // 911 (GT: 911_Real, Fake: 911_Fake)
+  // -------------------------
+  {
+    dataset: "911",
+    gt_id: "call_8_0",
+    codec: "encodec_24khz",
+    gt_url: "911_Real/call_8_0.wav",
+    gen_url: "911_Fake/call_8_0_encodec_24khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_9_0",
+    codec: "snac_32khz",
+    gt_url: "911_Real/call_9_0.wav",
+    gen_url: "911_Fake/call_9_0_snac_32khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_88_0",
+    codec: "snac_44khz",
+    gt_url: "911_Real/call_88_0.wav",
+    gen_url: "911_Fake/call_88_0_snac_44khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_89_0",
+    codec: "dac_16khz",
+    gt_url: "911_Real/call_89_0.wav",
+    gen_url: "911_Fake/call_89_0_dac_16khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_90_0",
+    codec: "dac_24khz",
+    gt_url: "911_Real/call_90_0.wav",
+    gen_url: "911_Fake/call_90_0_dac_24khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_91_0",
+    codec: "dac_44khz",
+    gt_url: "911_Real/call_91_0.wav",
+    gen_url: "911_Fake/call_91_0_dac_44khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_92_0",
+    codec: "encodec_24khz",
+    gt_url: "911_Real/call_92_0.wav",
+    gen_url: "911_Fake/call_92_0_encodec_24khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_93_0",
+    codec: "encodec_24khz",
+    gt_url: "911_Real/call_93_0.wav",
+    gen_url: "911_Fake/call_93_0_encodec_24khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_94_0",
+    codec: "encodec_48khz",
+    gt_url: "911_Real/call_94_0.wav",
+    gen_url: "911_Fake/call_94_0_encodec_48khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_95_0",
+    codec: "soundstream_16khz",
+    gt_url: "911_Real/call_95_0.wav",
+    gen_url: "911_Fake/call_95_0_soundstream_16khz.wav"
+  },
+  {
+    dataset: "911",
+    gt_id: "call_96_0",
+    codec: "speechtokenizer",
+    gt_url: "911_Real/call_96_0.wav",
+    gen_url: "911_Fake/call_96_0_speechtokenizer.wav"
+  },
+
+  // -------------------------
+  // Real/Fake set (GT: Real, Fake: Fake)
+  // -------------------------
+  {
+    dataset: "SEREC",
+    gt_id: "01_01_00_02_02",
+    codec: "snac_24khz",
+    gt_url: "Real/01_01_00_02_02.wav",
+    gen_url: "Fake/01_01_00_02_02_snac_24khz.wav"
+  },
+  {
+    dataset: "SEREC",
+    gt_id: "01_01_01_01_01",
+    codec: "snac_32khz",
+    gt_url: "Real/01_01_01_01_01.wav",
+    gen_url: "Fake/01_01_01_01_01_snac_32khz.wav"
+  },
+  {
+    dataset: "SEREC",
+    gt_id: "01_01_01_01_03",
+    codec: "dac_16khz",
+    gt_url: "Real/01_01_01_01_03.wav",
+    gen_url: "Fake/01_01_01_01_03_dac_16khz.wav"
+  },
+  {
+    dataset: "ECCSERECF",
+    gt_id: "01_01_01_01_04",
+    codec: "encodec_48khz",
+    gt_url: "Real/01_01_01_01_04.wav",
+    gen_url: "Fake/01_01_01_01_04_encodec_48khz.wav"
+  },
+  {
+    dataset: "SEREC",
+    gt_id: "01_01_01_01_05",
+    codec: "soundstream_16khz",
+    gt_url: "Real/01_01_01_01_05.wav",
+    gen_url: "Fake/01_01_01_01_05_soundstream_16khz.wav"
+  },
+  {
+    dataset: "SEREC",
+    gt_id: "01_01_01_01_06",
+    codec: "encodec_24khz",
+    gt_url: "Real/01_01_01_01_06.wav",
+    gen_url: "Fake/01_01_01_01_06_encodec_24khz.wav"
+  },
+  {
+    dataset: "SEREC",
+    gt_id: "01_01_02_01_07",
+    codec: "SpeechTokenizer",
+    gt_url: "Real/01_01_02_01_07.wav",
+    gen_url: "Fake/01_01_02_01_07_SpeechTokenizer.wav"
+  }
+];
+  </script>
+
+  <script>
+    function audioCell(src){
+      const td = document.createElement("td");
+      if(!src){
+        td.textContent = "—";
+        td.className = "small";
+        return td;
+      }
+      const wrap = document.createElement("div");
+      wrap.className = "audio-pill";
+      const a = document.createElement("audio");
+      a.controls = true;
+      a.preload = "none";
+      a.src = src;
+      wrap.appendChild(a);
+      td.appendChild(wrap);
+      return td;
+    }
+
+    function textCell(txt){
+      const td = document.createElement("td");
+      td.textContent = txt ?? "";
+      return td;
+    }
+
+    function loadFromManifest(){
+      const tbody = document.getElementById("tbody");
+
+      if(!Array.isArray(window.MANIFEST_RAW)){
+        tbody.innerHTML = `
+          <tr><td colspan="5" class="small">
+            <b>Manifest not found.</b><br/>
+            Expected <code>window.MANIFEST_RAW = [...]</code>.
+          </td></tr>`;
+        return;
+      }
+
+      const rows = window.MANIFEST_RAW;
+
+      tbody.innerHTML = "";
+      if(rows.length === 0){
+        tbody.innerHTML = `<tr><td colspan="5" class="small">No rows in manifest.</td></tr>`;
+        return;
+      }
+
+      for(const r of rows){
+        const tr = document.createElement("tr");
+        tr.appendChild(textCell(r.dataset || ""));
+        tr.appendChild(textCell(r.codec || ""));
+        tr.appendChild(textCell(r.gt_id || r.id || ""));
+        tr.appendChild(audioCell(r.gt_url));
+        tr.appendChild(audioCell(r.gen_url));
+        tbody.appendChild(tr);
+      }
+    }
+
+    loadFromManifest();
+  </script>
+</body>
+</html>
